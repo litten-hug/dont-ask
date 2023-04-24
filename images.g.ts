@@ -519,6 +519,76 @@ c c c c c d d d e e f c . . f f
 . . . f d d c f f f b d f . . . 
 . . . . f f f . . . f f f . . . 
 `];
+            case "flamingMonkeyWalkRight":
+            case "|uJ,Rm(kR{COhq@~[,(}":return [img`
+. . . . . . . f f f f f . . . . 
+. . . . . . f 2 2 2 2 2 f . . . 
+. . . . . f 2 2 2 d d d d f . . 
+. . . . f f 2 2 d f d d f d c . 
+. . . f d d 2 2 d f d d f d c . 
+. . . c d b 2 2 d d d d 2 2 d c 
+f f . c d b 2 2 d d c d d d d c 
+f 2 f . c f 2 2 d d d c c c c c 
+f 2 f . . f f 2 2 d d d d d f . 
+f 2 f . f 2 2 2 2 f f f f f . . 
+f 2 f f 2 2 2 2 2 2 2 f . . . . 
+. f f 2 2 2 2 f 2 f f 2 f . . . 
+. . f 2 2 2 2 f 2 f f 2 f . . . 
+. . . f 2 f f b d f b d f . . . 
+. . . f d b b d d c d d f . . . 
+. . . f f f f f f f f f . . . . 
+`, img`
+. . . . . . . f f f f f . . . . 
+. . . . . . f 2 2 2 2 2 f . . . 
+. . . . . f 2 2 2 d d d d f . . 
+. . . . f f 2 2 d f d d f d c . 
+. . . f d d 2 2 d f d d f d c . 
+. . . c d b 2 2 d d d d 2 2 d c 
+. . . c d b 2 2 d d c d d d d c 
+f f . . c f 2 2 d d d c c c c c 
+f 2 f . . f f 2 2 d d d d d f . 
+f 2 f . f 2 2 2 2 f f f f f . . 
+f 2 f f 2 2 2 2 2 2 2 f . . . . 
+f 2 f 2 2 2 2 f 2 f f 2 f . . . 
+. f f 2 2 2 2 f 2 f b d f . . . 
+. . . f d b f b d c d d f . . . 
+. . . f f f b d d f f f . . . . 
+. . . . . . f f f . . . . . . . 
+`, img`
+. . . . . . . f f f f f . . . . 
+. . . . . . f 2 2 2 2 2 f . . . 
+. . . . . f 2 2 2 d d d d f . . 
+. . . . f f 2 2 d f d d f d c . 
+. . . f d d 2 2 d f d d f d c . 
+. . . c d b 2 2 d d d d 2 2 d c 
+f f . c d b 2 2 d d c d d d d c 
+f 2 f . c f 2 2 d d d c c c c c 
+f 2 f . . f f 2 2 d d d d d f . 
+f 2 f . f 2 2 2 2 f f f f f . . 
+f 2 f f 2 2 2 2 2 2 2 f . . . . 
+. f f 2 2 2 2 f 2 f f 2 f . . . 
+. . f 2 2 2 2 f 2 f f 2 f . . . 
+. . . f 2 f f b d f b d f . . . 
+. . . f d b b d d c d d f . . . 
+. . . f f f f f f f f f . . . . 
+`, img`
+. . . . . . . f f f f f . . . . 
+. . . . . . f 2 2 2 2 2 f . . . 
+. . . . . f 2 2 2 d d d d f . . 
+. . . . f f 2 2 d f d d f d c . 
+. . . f d d 2 2 d f d d f d c . 
+. . . c d b 2 2 d d d d 2 2 d c 
+. . . c d b 2 2 d d c d d d d c 
+f f . . c f 2 2 d d d c c c c c 
+f 2 f . . f f 2 2 d d d d d f . 
+f 2 f . f 2 2 2 2 f f f f f . . 
+f 2 f f 2 2 2 2 2 2 2 f . . . . 
+f 2 f 2 2 2 2 f 2 f f 2 f . . . 
+. f f 2 2 2 2 b d f f 2 f . . . 
+. . . f 2 f b d d f b d f . . . 
+. . . f d b f f f c d d f . . . 
+. . . f f f . . . f f f . . . . 
+`];
         }
         return null;
     })

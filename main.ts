@@ -3,6 +3,62 @@ namespace SpriteKind {
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (inLevel == true) {
+        if (mySprite2.tileKindAt(TileDirection.Center, assets.tile`myTile35`)) {
+            if (level1clear == true) {
+                tiles.setCurrentTilemap(tilemap`level3`)
+                sprites.destroy(mySprite2)
+                mySprite = sprites.create(img`
+                    . . . . . . . f f f f f . . . . 
+                    . . . . . . f e e e e e f . . . 
+                    . . . . . f e e e d d d d f . . 
+                    . . . . f f e e d f d d f d c . 
+                    . . . f d d e e d f d d f d c . 
+                    . . . c d b e e d d d d e e d c 
+                    f f . c d b e e d d c d d d d c 
+                    f e f . c f e e d d d c c c c c 
+                    f e f . . f f e e d d d d d f . 
+                    f e f . f e e e e f f f f f . . 
+                    f e f f e e e e e e e f . . . . 
+                    . f f e e e e f e f f e f . . . 
+                    . . f e e e e f e f f e f . . . 
+                    . . . f e f f b d f b d f . . . 
+                    . . . f d b b d d c d d f . . . 
+                    . . . f f f f f f f f f . . . . 
+                    `, SpriteKind.Player)
+                controller.moveSprite(mySprite, 50, 50)
+                tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 11))
+                sprites.destroy(mySprite3)
+            }
+            scene.cameraFollowSprite(mySprite)
+            if (level1clear == false) {
+                tiles.setCurrentTilemap(tilemap`level2`)
+                sprites.destroy(mySprite2)
+                mySprite = sprites.create(img`
+                    . . . . . . . f f f f f . . . . 
+                    . . . . . . f e e e e e f . . . 
+                    . . . . . f e e e d d d d f . . 
+                    . . . . f f e e d f d d f d c . 
+                    . . . f d d e e d f d d f d c . 
+                    . . . c d b e e d d d d e e d c 
+                    f f . c d b e e d d c d d d d c 
+                    f e f . c f e e d d d c c c c c 
+                    f e f . . f f e e d d d d d f . 
+                    f e f . f e e e e f f f f f . . 
+                    f e f f e e e e e e e f . . . . 
+                    . f f e e e e f e f f e f . . . 
+                    . . f e e e e f e f f e f . . . 
+                    . . . f e f f b d f b d f . . . 
+                    . . . f d b b d d c d d f . . . 
+                    . . . f f f f f f f f f . . . . 
+                    `, SpriteKind.Player)
+                controller.moveSprite(mySprite, 50, 50)
+                scene.cameraFollowSprite(mySprite)
+                tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 11))
+                sprites.destroy(mySprite3)
+            }
+        }
+    }
+    if (inLevel == true) {
         if (mySprite2.isHittingTile(CollisionDirection.Bottom)) {
             touchingwallright = mySprite2.tileKindAt(TileDirection.Right, assets.tile`myTile0`)
         }
@@ -344,6 +400,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     tiles.placeOnTile(mySprite, tiles.getTileLocation(3, 9))
     controller.moveSprite(mySprite, 50, 50)
     inLevel = false
+    level1clear = true
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
     if (facingLeft == true) {
@@ -549,19 +606,175 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, l
 })
 controller.right.onEvent(ControllerButtonEvent.Released, function () {
     if (inLevel == true) {
+        if (flamingMonkeySkin == false) {
+            animation.runImageAnimation(
+            mySprite2,
+            assets.animation`monkeyStillRight`,
+            250,
+            true
+            )
+        }
+        if (flamingMonkeySkin == true) {
+            animation.runImageAnimation(
+            mySprite2,
+            [img`
+                . . . . . . . f f f f f . . . . 
+                . . . . . . f 2 2 2 2 2 f . . . 
+                . . . . . f 2 2 2 d d d d f . . 
+                . . . . f f 2 2 d f d d f d c . 
+                . . . f d d 2 2 d f d d f d c . 
+                . . . c d b 2 2 d d d d 2 2 d c 
+                f f . c d b 2 2 d d c d d d d c 
+                f 2 f . c f 2 2 d d d c c c c c 
+                f 2 f . . f f 2 2 d d d d d f . 
+                f 2 f . f 2 2 2 2 f f f f f . . 
+                f 2 f f 2 2 2 2 2 2 2 f . . . . 
+                . f f 2 2 2 2 f 2 f f 2 f . . . 
+                . . f 2 2 2 2 f 2 f f 2 f . . . 
+                . . . f 2 f f b d f b d f . . . 
+                . . . f d b b d d c d d f . . . 
+                . . . f f f f f f f f f . . . . 
+                `,img`
+                . . . . . . . f f f f f . . . . 
+                . . . . . . f 2 2 2 2 2 f . . . 
+                . . . . . f 2 2 2 d d d d f . . 
+                . . . . f f 2 2 d f d d f d c . 
+                . . . f d d 2 2 d f d d f d c . 
+                . . . c d b 2 2 d d d d 2 2 d c 
+                f f . c d b 2 2 d d c d d d d c 
+                f 2 f . c f 2 2 d d d c c c c c 
+                f 2 f . . f f 2 2 d d d d d f . 
+                f 2 f . f 2 2 2 2 f f f f f . . 
+                f 2 f f 2 2 2 2 2 2 2 f . . . . 
+                . f f 2 2 2 2 f 2 f f 2 f . . . 
+                . . f 2 2 2 2 f 2 f f 2 f . . . 
+                . . . f 2 f f b d f b d f . . . 
+                . . . f d b b d d c d d f . . . 
+                . . . f f f f f f f f f . . . . 
+                `,img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . f f f f f . . . . 
+                . . . . . . f 2 2 2 2 2 f . . . 
+                . . . . . f 2 2 2 d d d d f . . 
+                . . . . f f 2 2 d f d d f d c . 
+                . . . f d d 2 2 d f d d f d c . 
+                . . . c d b 2 2 d d d d 2 2 d c 
+                f f . c d b 2 2 d d c d d d d c 
+                f 2 f . c f 2 2 d d d c c c c c 
+                f 2 f . . f f 2 2 d d d d d f . 
+                f 2 f . f 2 2 2 2 f f f f f . . 
+                f 2 f f 2 2 2 2 2 2 2 f . . . . 
+                . f f 2 2 2 2 f 2 f f 2 f . . . 
+                . . . f 2 f f b d f b d f . . . 
+                . . . f d b b d d c d d f . . . 
+                . . . f f f f f f f f f . . . . 
+                `,img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . f f f f f . . . . 
+                . . . . . . f 2 2 2 2 2 f . . . 
+                . . . . . f 2 2 2 d d d d f . . 
+                . . . . f f 2 2 d f d d f d c . 
+                . . . f d d 2 2 d f d d f d c . 
+                f f . c d b 2 2 d d d d 2 2 d c 
+                f 2 f c d b 2 2 d d c d d d d c 
+                f 2 f . c f 2 2 d d d c c c c c 
+                f 2 f . . f f 2 2 d d d d d f . 
+                f 2 f f f 2 2 2 2 f f f f f . . 
+                . f f 2 2 2 2 f 2 f f 2 f . . . 
+                . . . f 2 f f b d f b d f . . . 
+                . . . f d b b d d c d d f . . . 
+                . . . f f f f f f f f f . . . . 
+                `],
+            250,
+            true
+            )
+        }
+    }
+    if (flamingMonkeySkin == false) {
         animation.runImageAnimation(
-        mySprite2,
+        mySprite,
         assets.animation`monkeyStillRight`,
         250,
         true
         )
     }
-    animation.runImageAnimation(
-    mySprite,
-    assets.animation`monkeyStillRight`,
-    250,
-    true
-    )
+    if (flamingMonkeySkin == true) {
+        animation.runImageAnimation(
+        mySprite,
+        [img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f 2 2 2 2 2 f . . . 
+            . . . . . f 2 2 2 d d d d f . . 
+            . . . . f f 2 2 d f d d f d c . 
+            . . . f d d 2 2 d f d d f d c . 
+            . . . c d b 2 2 d d d d 2 2 d c 
+            f f . c d b 2 2 d d c d d d d c 
+            f 2 f . c f 2 2 d d d c c c c c 
+            f 2 f . . f f 2 2 d d d d d f . 
+            f 2 f . f 2 2 2 2 f f f f f . . 
+            f 2 f f 2 2 2 2 2 2 2 f . . . . 
+            . f f 2 2 2 2 f 2 f f 2 f . . . 
+            . . f 2 2 2 2 f 2 f f 2 f . . . 
+            . . . f 2 f f b d f b d f . . . 
+            . . . f d b b d d c d d f . . . 
+            . . . f f f f f f f f f . . . . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f 2 2 2 2 2 f . . . 
+            . . . . . f 2 2 2 d d d d f . . 
+            . . . . f f 2 2 d f d d f d c . 
+            . . . f d d 2 2 d f d d f d c . 
+            . . . c d b 2 2 d d d d 2 2 d c 
+            f f . c d b 2 2 d d c d d d d c 
+            f 2 f . c f 2 2 d d d c c c c c 
+            f 2 f . . f f 2 2 d d d d d f . 
+            f 2 f . f 2 2 2 2 f f f f f . . 
+            f 2 f f 2 2 2 2 2 2 2 f . . . . 
+            . f f 2 2 2 2 f 2 f f 2 f . . . 
+            . . f 2 2 2 2 f 2 f f 2 f . . . 
+            . . . f 2 f f b d f b d f . . . 
+            . . . f d b b d d c d d f . . . 
+            . . . f f f f f f f f f . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f 2 2 2 2 2 f . . . 
+            . . . . . f 2 2 2 d d d d f . . 
+            . . . . f f 2 2 d f d d f d c . 
+            . . . f d d 2 2 d f d d f d c . 
+            . . . c d b 2 2 d d d d 2 2 d c 
+            f f . c d b 2 2 d d c d d d d c 
+            f 2 f . c f 2 2 d d d c c c c c 
+            f 2 f . . f f 2 2 d d d d d f . 
+            f 2 f . f 2 2 2 2 f f f f f . . 
+            f 2 f f 2 2 2 2 2 2 2 f . . . . 
+            . f f 2 2 2 2 f 2 f f 2 f . . . 
+            . . . f 2 f f b d f b d f . . . 
+            . . . f d b b d d c d d f . . . 
+            . . . f f f f f f f f f . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f 2 2 2 2 2 f . . . 
+            . . . . . f 2 2 2 d d d d f . . 
+            . . . . f f 2 2 d f d d f d c . 
+            . . . f d d 2 2 d f d d f d c . 
+            f f . c d b 2 2 d d d d 2 2 d c 
+            f 2 f c d b 2 2 d d c d d d d c 
+            f 2 f . c f 2 2 d d d c c c c c 
+            f 2 f . . f f 2 2 d d d d d f . 
+            f 2 f f f 2 2 2 2 f f f f f . . 
+            . f f 2 2 2 2 f 2 f f 2 f . . . 
+            . . . f 2 f f b d f b d f . . . 
+            . . . f d b b d d c d d f . . . 
+            . . . f f f f f f f f f . . . . 
+            `],
+        250,
+        true
+        )
+    }
 })
 controller.left.onEvent(ControllerButtonEvent.Released, function () {
     if (inLevel == true) {
@@ -760,93 +973,47 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile20`, function (sprite, 
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (inLevel == true) {
-        animation.stopAnimation(animation.AnimationTypes.All, mySprite2)
         facingRight = true
         facingLeft = false
+        if (flamingMonkeySkin == false) {
+            animation.stopAnimation(animation.AnimationTypes.All, mySprite2)
+            animation.runImageAnimation(
+            mySprite2,
+            assets.animation`monkeyWalkRight`,
+            200,
+            true
+            )
+        }
+        if (flamingMonkeySkin == true) {
+            animation.stopAnimation(animation.AnimationTypes.All, mySprite2)
+            animation.runImageAnimation(
+            mySprite2,
+            assets.animation`flamingMonkeyWalkRight`,
+            200,
+            true
+            )
+        }
+    }
+    facingRight = true
+    facingLeft = false
+    if (flamingMonkeySkin == false) {
+        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
         animation.runImageAnimation(
-        mySprite2,
-        assets.animation`monkeyWalkRight`,
+        mySprite,
+        assets.animation`flamingMonkeyWalkRight`,
         200,
         true
         )
     }
-    animation.stopAnimation(animation.AnimationTypes.All, mySprite)
-    facingRight = true
-    facingLeft = false
-    animation.runImageAnimation(
-    mySprite,
-    [img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d f d d f d c . 
-        . . . c d b e e d d d d e e d c 
-        f f . c d b e e d d c d d d d c 
-        f e f . c f e e d d d c c c c c 
-        f e f . . f f e e d d d d d f . 
-        f e f . f e e e e f f f f f . . 
-        f e f f e e e e e e e f . . . . 
-        . f f e e e e f e f f e f . . . 
-        . . f e e e e f e f f e f . . . 
-        . . . f e f f b d f b d f . . . 
-        . . . f d b b d d c d d f . . . 
-        . . . f f f f f f f f f . . . . 
-        `,img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d f d d f d c . 
-        . . . c d b e e d d d d e e d c 
-        . . . c d b e e d d c d d d d c 
-        f f . . c f e e d d d c c c c c 
-        f e f . . f f e e d d d d d f . 
-        f e f . f e e e e f f f f f . . 
-        f e f f e e e e e e e f . . . . 
-        f e f e e e e f e f f e f . . . 
-        . f f e e e e f e f b d f . . . 
-        . . . f d b f b d c d d f . . . 
-        . . . f f f b d d f f f . . . . 
-        . . . . . . f f f . . . . . . . 
-        `,img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d f d d f d c . 
-        . . . c d b e e d d d d e e d c 
-        f f . c d b e e d d c d d d d c 
-        f e f . c f e e d d d c c c c c 
-        f e f . . f f e e d d d d d f . 
-        f e f . f e e e e f f f f f . . 
-        f e f f e e e e e e e f . . . . 
-        . f f e e e e f e f f e f . . . 
-        . . f e e e e f e f f e f . . . 
-        . . . f e f f b d f b d f . . . 
-        . . . f d b b d d c d d f . . . 
-        . . . f f f f f f f f f . . . . 
-        `,img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d f d d f d c . 
-        . . . c d b e e d d d d e e d c 
-        . . . c d b e e d d c d d d d c 
-        f f . . c f e e d d d c c c c c 
-        f e f . . f f e e d d d d d f . 
-        f e f . f e e e e f f f f f . . 
-        f e f f e e e e e e e f . . . . 
-        f e f e e e e f e f f e f . . . 
-        . f f e e e e b d f f e f . . . 
-        . . . f e f b d d f b d f . . . 
-        . . . f d b f f f c d d f . . . 
-        . . . f f f . . . f f f . . . . 
-        `],
-    200,
-    true
-    )
+    if (flamingMonkeySkin == true) {
+        animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+        animation.runImageAnimation(
+        mySprite,
+        assets.animation`flamingMonkeyWalkRight`,
+        200,
+        true
+        )
+    }
 })
 controller.up.onEvent(ControllerButtonEvent.Released, function () {
     if (inLevel == true) {
@@ -1077,14 +1244,15 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile11`, function (sprite, location) {
     LevelstartReady = true
 })
-let mySprite3: Sprite = null
 let LevelstartReady = false
 let touchingWallLeft = false
 let facingRight = false
 let facingLeft = false
 let touchingwallright = false
+let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let inLevel = false
+let level1clear = false
 let flamingMonkeySkin = false
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -1110,6 +1278,7 @@ tiles.setCurrentTilemap(tilemap`level2`)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 9))
 controller.moveSprite(mySprite, 50, 50)
 flamingMonkeySkin = false
+level1clear = false
 forever(function () {
     if (inLevel == true) {
         if (mySprite2.isHittingTile(CollisionDirection.Bottom)) {
