@@ -13,3 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Part of the flame monkey skin
 - Wall climbing mechanic
 - NPC and NPC dialog in hut
+
+## 2023-04-24
+
+### Added
+
+* Able to exit huts
+* Removed some walls from tilemap
+* Added more of the "Flame Monkey" skin
